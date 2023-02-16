@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script>
+        elem = {
+            "1": "H",
+            "2": "He",
+            "3": "Li",
+            "4": "Be",
+            "5": "B",
+            "6": "C",
+            "7": "N",
+            "8": "O",
+            "9": "F",
+            "10": "Ne",
+            "11": "Na",
+            "12": "Mg",
+            "13": "Al",
+            "14": "Si",
+            "15": "P",
+            "16": "S",
+            "17": "Cl",
+            "18": "Ar",
+            "19": "K",
+            "20": "Ca",
+            "21": "Sc",
+            "22": "Ti",
+            "23": "V",
+            "24": "Cr",
+            "25": "Mn",
+            "26": "Fe",
+            "27": "Co",
+            "28": "Ni",
+            "29": "Cu",
+            "30": "Zn",
+            "31": "Ga",
+            "32": "Ge",
+            "33": "As",
+            "34": "Se",
+            "35": "Br",
+            "36": "Kr",
+            "37": "Rb",
+            "38": "Sr",
+            "39": "Y",
+            "40": "Zr",
+            "41": "Nb",
+            "42": "Mo",
+            "43": "Tc",
+            "44": "Ru",
+            "45": "Rh",
+            "46": "Pd",
+            "47": "Ag",
+            "48": "Cd",
+            "49": "In",
+            "50": "Sn",
+            "51": "Sb",
+            "52": "Te",
+            "53": "I",
+            "54": "Xe",
+            "55": "Cs",
+            "56": "Ba",
+            "57": "La",
+            "58": "Ce",
+            "59": "Pr",
+            "60": "Nd",
+            "61": "Pm",
+            "62": "Sm",
+            "63": "Eu",
+            "64": "Gd",
+            "65": "Tb",
+            "66": "Dy",
+            "67": "Ho",
+            "68": "Er",
+            "69": "Tm",
+            "70": "Yb",
+            "71": "Lu",
+            "72": "Hf",
+            "73": "Ta",
+            "74": "W",
+            "75": "Re",
+            "76": "Os",
+            "77": "Ir",
+            "78": "Pt",
+            "79": "Au",
+            "80": "Hg",
+            "81": "Ti",
+            "82": "Pb",
+            "83": "Bi",
+            "84": "Po",
+            "85": "At",
+            "86": "Rn",
+            "87": "Fr",
+            "88": "Ra",
+            "89": "Ac",
+            "90": "Th",
+            "91": "Pa",
+            "92": "U",
+            "93": "Np",
+            "94": "Pu",
+            "95": "Am",
+            "96": "Cm",
+            "97": "Bk",
+            "98": "Cf",
+            "99": "Es",
+            "100": "Fm",
+            "101": "Md",
+            "102": "No",
+            "103": "Lr",
+            "104": "Rf",
+            "105": "Db",
+            "106": "Sg",
+            "107": "Bh",
+            "108": "Hs",
+            "109": "Mt",
+            "110": "Ds",
+            "111": "Rg",
+            "112": "Cn",
+            "113": "UUt",
+            "114": "Fl",
+            "115": "Uup",
+            "116": "Lv",
+            "117": "Uus",
+            "118": "Uuo"
+        }
+        function showInfo(num) {
+            var xmlHttp = new XMLHttpRequest();
+            num = parseInt(num)+1
+            xmlHttp.open( "GET", "https://neelpatel05.pythonanywhere.com/element/atomicnumber?atomicnumber=" + num, false ); // false for synchronous request
+            xmlHttp.send( null );
+            jr = JSON.parse(xmlHttp.responseText);
+            alert("Full Name: " + jr.name + "\nSymbol: " + elem[num] + "\nID: " + num)
+        }
+        function go() {
+        	elements = document.getElementsByClassName("element");
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = elements[i]["dataset"]["eid"] + " " + elem[i+1];
+                elements[i].addEventListener("click", function() { showInfo(i); })
+            }
+        }
+    </script>
+    <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      background-color: #000000;
+      padding: 10px;
+    }
+    .grid-item {
+      padding: 5px;
+      font-size: 10px;
+      text-align: center;
+    }
+    .element {
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    .star {
+      color: red;
+    }
+    .modal {
+        z-index: 2;
+        position: absolute;
+        top: 0; left: 0;
+    }
+    </style>
+</head>
+<body>
+
+<h1>BOEI</h1>
+
+<h3>The Basic Online Element Inspector</h3>
+
+<div class="grid-container">
+  <div class="grid-item element" data-eid="1"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item element" data-eid="2"></div>
+  <div class="grid-item element" data-eid="3"></div>
+  <div class="grid-item element" data-eid="4"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item element" data-eid="5"></div>
+  <div class="grid-item element" data-eid="6"></div>
+  <div class="grid-item element" data-eid="7"></div>  
+  <div class="grid-item element" data-eid="8"></div>
+  <div class="grid-item element" data-eid="9"></div>
+  <div class="grid-item element" data-eid="10"></div>
+  <div class="grid-item element" data-eid="11"></div>
+  <div class="grid-item element" data-eid="12"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item element" data-eid="13"></div>
+  <div class="grid-item element" data-eid="14"></div>
+  <div class="grid-item element" data-eid="15"></div>  
+  <div class="grid-item element" data-eid="16"></div>
+  <div class="grid-item element" data-eid="17"></div>
+  <div class="grid-item element" data-eid="18"></div>
+  <div class="grid-item element" data-eid="19"></div>
+  <div class="grid-item element" data-eid="20"></div>
+  <div class="grid-item element" data-eid="21"></div>  
+  <div class="grid-item element" data-eid="22"></div>
+  <div class="grid-item element" data-eid="23"></div>
+  <div class="grid-item element" data-eid="24"></div>  
+  <div class="grid-item element" data-eid="25"></div>
+  <div class="grid-item element" data-eid="26"></div>
+  <div class="grid-item element" data-eid="27"></div>
+  <div class="grid-item element" data-eid="28"></div>
+  <div class="grid-item element" data-eid="29"></div>
+  <div class="grid-item element" data-eid="30"></div>  
+  <div class="grid-item element" data-eid="31"></div>
+  <div class="grid-item element" data-eid="32"></div>
+  <div class="grid-item element" data-eid="33"></div>  
+  <div class="grid-item element" data-eid="34"></div>
+  <div class="grid-item element" data-eid="35"></div>
+  <div class="grid-item element" data-eid="36"></div>
+  <div class="grid-item element" data-eid="37"></div>
+  <div class="grid-item element" data-eid="38"></div>
+  <div class="grid-item element" data-eid="39"></div>  
+  <div class="grid-item element" data-eid="40"></div>
+  <div class="grid-item element" data-eid="41"></div>
+  <div class="grid-item element" data-eid="42"></div>  
+  <div class="grid-item element" data-eid="43"></div>
+  <div class="grid-item element" data-eid="44"></div>
+  <div class="grid-item element" data-eid="45"></div>
+  <div class="grid-item element" data-eid="46"></div>
+  <div class="grid-item element" data-eid="47"></div>
+  <div class="grid-item element" data-eid="48"></div>  
+  <div class="grid-item element" data-eid="49"></div>
+  <div class="grid-item element" data-eid="50"></div>
+  <div class="grid-item element" data-eid="51"></div>  
+  <div class="grid-item element" data-eid="51"></div>
+  <div class="grid-item element" data-eid="53"></div>
+  <div class="grid-item element" data-eid="54"></div>
+  <div class="grid-item element" data-eid="55"></div>
+  <div class="grid-item element" data-eid="56"></div>
+  <div class="grid-item star">*</div>  
+  <div class="grid-item element" data-eid="72"></div>
+  <div class="grid-item element" data-eid="73"></div>
+  <div class="grid-item element" data-eid="74"></div>  
+  <div class="grid-item element" data-eid="75"></div>
+  <div class="grid-item element" data-eid="76"></div>
+  <div class="grid-item element" data-eid="77"></div>
+  <div class="grid-item element" data-eid="78"></div>
+  <div class="grid-item element" data-eid="79"></div>
+  <div class="grid-item element" data-eid="80"></div>  
+  <div class="grid-item element" data-eid="81"></div>
+  <div class="grid-item element" data-eid="82"></div>
+  <div class="grid-item element" data-eid="83"></div>  
+  <div class="grid-item element" data-eid="84"></div>
+  <div class="grid-item element" data-eid="85"></div>
+  <div class="grid-item element" data-eid="86"></div>
+  <div class="grid-item element" data-eid="87"></div>
+  <div class="grid-item element" data-eid="88"></div>
+  <div class="grid-item star">*</div>  
+  <div class="grid-item element" data-eid="104"></div>
+  <div class="grid-item element" data-eid="105"></div>
+  <div class="grid-item element" data-eid="106"></div>  
+  <div class="grid-item element" data-eid="107"></div>
+  <div class="grid-item element" data-eid="108"></div>
+  <div class="grid-item element" data-eid="109"></div>
+  <div class="grid-item element" data-eid="110"></div>
+  <div class="grid-item element" data-eid="111"></div>
+  <div class="grid-item element" data-eid="112"></div>  
+  <div class="grid-item element" data-eid="113"></div>
+  <div class="grid-item element" data-eid="114"></div>
+  <div class="grid-item element" data-eid="115"></div>  
+  <div class="grid-item element" data-eid="116"></div>
+  <div class="grid-item element" data-eid="117"></div>
+  <div class="grid-item element" data-eid="118"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item star">*</div>
+  <div class="grid-item element" data-eid="57"></div>  
+  <div class="grid-item element" data-eid="58"></div>
+  <div class="grid-item element" data-eid="59"></div>
+  <div class="grid-item element" data-eid="60"></div>  
+  <div class="grid-item element" data-eid="61"></div>
+  <div class="grid-item element" data-eid="62"></div>
+  <div class="grid-item element" data-eid="63"></div>
+  <div class="grid-item element" data-eid="64"></div>
+  <div class="grid-item element" data-eid="65"></div>
+  <div class="grid-item element" data-eid="66"></div>  
+  <div class="grid-item element" data-eid="67"></div>
+  <div class="grid-item element" data-eid="68"></div>
+  <div class="grid-item element" data-eid="69"></div>  
+  <div class="grid-item element" data-eid="70"></div>
+  <div class="grid-item element" data-eid="71"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item star">*</div>
+  <div class="grid-item element" data-eid="89"></div>  
+  <div class="grid-item element" data-eid="90"></div>
+  <div class="grid-item element" data-eid="91"></div>
+  <div class="grid-item element" data-eid="92"></div>  
+  <div class="grid-item element" data-eid="93"></div>
+  <div class="grid-item element" data-eid="94"></div>
+  <div class="grid-item element" data-eid="95"></div>
+  <div class="grid-item element" data-eid="96"></div>
+  <div class="grid-item element" data-eid="97"></div>
+  <div class="grid-item element" data-eid="98"></div>  
+  <div class="grid-item element" data-eid="99"></div>
+  <div class="grid-item element" data-eid="100"></div>
+  <div class="grid-item element" data-eid="101"></div>  
+  <div class="grid-item element" data-eid="102"></div>
+  <div class="grid-item element" data-eid="103"></div>
+  <div class="grid-item"></div>
+</div>
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Element [EID] - [NAME]</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>NAME: [NAME]</p>
+          <p>ID: [EID]</p>
+          <p>SYMBOL: [SYMBOL]</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+    go()
+</script>
+
+</body>
+</html>
+
+
